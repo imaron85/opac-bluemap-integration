@@ -22,10 +22,10 @@
     "opac-bluemap-integration.mixins.json"
   ],
   "depends": {
-    "fabricloader": ">=0.15.0",
+    "fabricloader": ">=0.17.3",
     "fabric": "*",
-    "minecraft": ">=1.19.4",
-    "bluemap": ">=3.13",
-    "openpartiesandclaims": ">=0.17.6"
+    "minecraft": ">=1.21.10",
+    "bluemap": ">=5.12",
+    "openpartiesandclaims": ">=0.25.6"
   }
 }
