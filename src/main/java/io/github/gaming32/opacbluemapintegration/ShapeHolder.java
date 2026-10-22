@@ -54,9 +54,9 @@ public record ShapeHolder(Shape baseShape, Shape... holes) {
         final ChunkPos maxChunk = getBound(chunks, Math::max);
 
         final Queue<ChunkPos> toVisit = new ArrayDeque<>();
-        for (int x = minChunk.x; x <= maxChunk.x; x++) {
-            for (int z = minChunk.z; z <= maxChunk.z; z++) {
-                if (x > minChunk.x && x < maxChunk.x && z > minChunk.z && z < maxChunk.z) continue;
+        for (int x = minChunk.x(); x <= maxChunk.x(); x++) {
+            for (int z = minChunk.z(); z <= maxChunk.z(); z++) {
+                if (x > minChunk.x() && x < maxChunk.x() && z > minChunk.z() && z < maxChunk.z()) continue;
                 final ChunkPos chunk = new ChunkPos(x, z);
                 if (chunks.contains(chunk)) continue;
                 toVisit.add(chunk);
@@ -69,8 +69,8 @@ public record ShapeHolder(Shape baseShape, Shape... holes) {
             for (final ChunkPosDirection dir : ChunkPosDirection.values()) {
                 final ChunkPos offsetPos = dir.add(chunk);
                 if (
-                    offsetPos.x < minChunk.x || offsetPos.x > maxChunk.x ||
-                        offsetPos.z < minChunk.z || offsetPos.z > maxChunk.z ||
+                    offsetPos.x() < minChunk.x() || offsetPos.x() > maxChunk.x() ||
+                        offsetPos.z() < minChunk.z() || offsetPos.z() > maxChunk.z() ||
                         chunks.contains(offsetPos) || !outsideChunks.add(offsetPos)
                 ) continue;
                 toVisit.add(offsetPos);
@@ -114,12 +114,12 @@ public record ShapeHolder(Shape baseShape, Shape... holes) {
     private static ChunkPos getBound(Iterable<ChunkPos> chunks, IntSelector selector) {
         final Iterator<ChunkPos> iterator = chunks.iterator();
         final ChunkPos first = iterator.next();
-        int x = first.x;
-        int z = first.z;
+        int x = first.x();
+        int z = first.z();
         while (iterator.hasNext()) {
             final ChunkPos pos = iterator.next();
-            x = selector.select(x, pos.x);
-            z = selector.select(z, pos.z);
+            x = selector.select(x, pos.x());
+            z = selector.select(z, pos.z());
         }
         return new ChunkPos(x, z);
     }

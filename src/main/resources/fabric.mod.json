@@ -18,14 +18,12 @@
       "io.github.gaming32.opacbluemapintegration.OpacBluemapIntegration"
     ]
   },
-  "mixins": [
-    "opac-bluemap-integration.mixins.json"
-  ],
   "depends": {
-    "fabricloader": ">=0.17.3",
-    "fabric": "*",
-    "minecraft": ">=1.21.10",
-    "bluemap": ">=5.12",
-    "openpartiesandclaims": ">=0.25.6"
+    "fabricloader": ">=0.19.3",
+    "fabric-api": ">=0.160.0",
+    "minecraft": ">=26.3",
+    "java": ">=25",
+    "bluemap": ">=5.29",
+    "openpartiesandclaims": ">=0.33.0"
   }
 }

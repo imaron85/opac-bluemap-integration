@@ -35,7 +35,7 @@ public enum ChunkPosDirection {
     }
 
     public ChunkPos add(ChunkPos pos) {
-        return new ChunkPos(pos.x + x, pos.z + z);
+        return new ChunkPos(pos.x() + x, pos.z() + z);
     }
 
     public int getEdge(ChunkPos pos) {

@@ -1,6 +1,5 @@
 package io.github.gaming32.opacbluemapintegration;
 
-import net.minecraft.core.registries.Registries;
 import com.mojang.brigadier.Command;
 import com.mojang.brigadier.arguments.IntegerArgumentType;
 import com.mojang.logging.LogUtils;
@@ -18,9 +17,11 @@ import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.ChatFormatting;
 import net.minecraft.commands.arguments.TimeArgument;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.MinecraftServer;
+import net.minecraft.server.permissions.Permissions;
 import net.minecraft.util.Mth;
 import net.minecraft.world.level.ChunkPos;
 import org.apache.commons.lang3.StringUtils;
@@ -57,7 +58,7 @@ public class OpacBluemapIntegration implements ModInitializer {
         ServerLifecycleEvents.SERVER_STOPPED.register(server -> minecraftServer = null);
         CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> {
             dispatcher.register(literal("opac-bluemap")
-                .requires(s -> s.hasPermission(2))
+                .requires(s -> s.permissions().hasPermission(Permissions.COMMANDS_GAMEMASTER))
                 .then(literal("refresh-now")
                     .requires(s -> BlueMapAPI.getInstance().isPresent())
                     .executes(ctx -> {
