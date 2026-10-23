@@ -3,12 +3,14 @@
   "id": "opac-bluemap-integration",
   "version": "${version}",
   "name": "OPaC BlueMap",
-  "description": "Syncs your Open Parties and Claims land claims to your BlueMap maps",
+  "description": "Syncs your Open Parties and Claims land claims to your BlueMap maps. Unofficial Minecraft 26.3 build by imaron85, not made or supported by Gaming32. Report problems at https://github.com/imaron85/opac-bluemap-integration/issues.",
   "authors": [
     "Gaming32"
   ],
   "contact": {
-    "repo": "https://github.com/Gaming32/opac-bluemap-integration"
+    "homepage": "https://github.com/Gaming32/opac-bluemap-integration",
+    "sources": "https://github.com/imaron85/opac-bluemap-integration",
+    "issues": "https://github.com/imaron85/opac-bluemap-integration/issues"
   },
   "license": "MIT",
   "icon": "assets/opac-bluemap-integration/icon.png",
